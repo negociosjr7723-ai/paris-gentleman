@@ -36,48 +36,47 @@
 
     header { 
     background: #000000; 
-    padding: 30px 0; 
-    border-bottom: 1px solid var(--line); 
+    padding: 30px 0 20px 0; /* 💡 Reducimos el padding inferior */
+    border: none;
+    margin-bottom: 0px;    /* 💡 Forzamos a que no deje separación abajo */
     overflow: hidden;
   }
+
   
   .header-flex {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 260px;
-  max-width: 100%; /* 💡 Cambiado de 1000px a 100% para expandir a los extremos */
-  margin: 0 auto;
-  padding: 20px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
   }
-
 
   .logo-center-wrap {
     text-align: center;
-    z-index: 2; /* Obliga al logo a estar por encima de las fotos de fondo */
+    z-index: 2;
   }
 
-  /* Devolvemos el tamaño gigante e imponente a tu logotipo */
   .logo-header {
-    max-width: clamp(350px, 75vw, 580px); /* Tamaño restaurado y majestuoso */
+    max-width: clamp(350px, 75vw, 580px);
     height: auto;
     display: inline-block;
     filter: grayscale(100%);
   }
 
   .header-mood-img {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 440px;      /* 💡 Las hacemos más anchas para que viajen hacia el centro */
-  aspect-ratio: 3 / 4;
-  overflow: hidden;
-  opacity: 0.20;     /* Bajamos un poquito la opacidad para que se mezclen mejor con el negro */
-  filter: grayscale(100%);
-  z-index: 1;        /* Capa trasera */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 440px;      
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    opacity: 0.45;     
+    filter: grayscale(100%);
+    z-index: 1;        
   }
-
 
   .header-mood-img img {
     width: 100%;
@@ -85,49 +84,51 @@
     object-fit: cover;
   }
 
-  /* Foto izquierda: Nace sólida en la esquina y se borra suavemente antes de llegar al logo */
   .img-izquierda {
-  left: 0;
-  mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
+    left: 0;
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
   }
 
-  /* Foto derecha: Nace sólida en la esquina y se borra suavemente antes de llegar al logo */
   .img-derecha {
-  right: 0;
-  mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
-  -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
+    right: 0;
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
   }
 
- 
-
-  /* En celulares pequeños ocultamos las imágenes de los lados para que el logo no se aplaste */
   @media (max-width: 768px) {
     .header-mood-img { display: none; }
     .header-flex { justify-content: center; }
   }
 
-  .header-titles { 
-  text-align: center; 
-  margin-top: 40px; 
-  position: relative;
-  z-index: 3; 
-}
+    .header-titles { 
+    text-align: center; 
+    margin-top: 10px;      /* 💡 Pegamos más los textos al logotipo */
+    margin-bottom: 0px;    /* 💡 Evitamos que empuje hacia abajo */
+    position: relative;
+    z-index: 3; 
+  }
 
-header h1 { 
-  font-size: clamp(2rem, 5vw, 2.8rem); 
-  color: #E9E6DC; 
-  margin-top: 20px; 
-}
+  header h1 { 
+    font-size: clamp(2rem, 5vw, 2.8rem); 
+    color: #E9E6DC; 
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
 
-header p { 
-  margin-top: 12px; 
-  color: #9FA2A0; 
-  font-size: clamp(0.95rem, 2vw, 1.15rem); 
-  line-height: 1.6; 
-}
+  header p { 
+    margin-top: 6px; 
+    margin-bottom: 0; 
+    color: #9FA2A0; 
+    font-size: clamp(0.95rem, 2vw, 1.15rem); 
+    line-height: 1.6; 
+  }
 
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 30px 0 10px; }
+
+
+
+
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 35px 0 10px; margin-top: -30px; position: relative; z-index: 10; }
   .filters button {
     background: transparent; border: 1px solid var(--line); color: var(--ink-dim);
     padding: 7px 14px; border-radius: 20px; font-family: 'Jost'; font-size: 0.8rem;
@@ -240,9 +241,11 @@ header p {
   
   <div class="wrap header-titles">
     <h1>Catálogo</h1>
+    <p>Camisas, trajes y accesorios disponibles en tienda</p>
     <p>Calle 18 # 31-88 — Novacentro, local 12, Pasto</p>
   </div>
 </header>
+
 
 
 <div class="wrap">
@@ -258,18 +261,6 @@ header p {
   <!-- Grilla de Productos -->
   <div class="grid">
 
-      <!-- Prenda 8 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallas8.jpg" alt="VO5">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / S Elegante para cualquier ocasión.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
 
       <!-- Prenda 29 -->
       <div class="card" data-category="camisas">
@@ -278,8 +269,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / S una prenda para vestir cada día aporta distinción y frescura a tu look</p>
+          <h3>Kosta Azul S</h3>
+          <p class="card-desc">una prenda para vestir cada día aporta distinción y frescura a tu look</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -291,8 +282,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / S tu estilo, tu mejor presentación, ideal para cada ocasión</p>
+          <h3>Kosta Azul S</h3>
+          <p class="card-desc">tu estilo, tu mejor presentación, ideal para cada ocasión</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -304,8 +295,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam kosta azul/ S casual, aporta comodidad y personalidad para cada día</p>
+          <h3>Kosta Azul S</h3>
+          <p class="card-desc">aporta comodidad y personalidad para cada día</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -317,8 +308,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / S una camisa para dejar huella y elegancia que se nota desde el primer instante</p>
+          <h3>NAGA S</h3>
+          <p class="card-desc">una camisa para dejar huella y elegancia que se nota desde el primer instante</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -330,8 +321,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / S luce professional con un estilo auténtico</p>
+          <h3>NAGA S</h3>
+          <p class="card-desc">luce professional con un estilo auténtico</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -343,8 +334,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / S  el equilibrio perfecto entre frescura y estilo</p>
+          <h3>Kosta Azul S</h3>
+          <p class="card-desc">el equilibrio perfecto entre frescura y estilo</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -356,153 +347,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / S  viste con distinción, camisas que elevan tu estilo y confianza</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-      
-      <!-- Prenda 9 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallas9.jpg" alt="NAGA">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / S Fresca y sofisticada, Diseñada para adaptarse a tu ritmo de vida.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 10 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallas10.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / S Caída impecable que favorece la comodidad sin perder la estructura.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-
-      <!-- Prenda 13 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallas13.jpg" alt="NAGA">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / S La dosis perfecta de frescura y distinción.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 14 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallas14.jpg" alt="NAGA">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / S Casual, cómoda y chic.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-      
-      <!-- Prenda 1 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallam1.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M Clásica y versátil</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 3 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallam3.jpg" alt="VO5">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / M Un esencial de tono suave y corte impecable </p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 4 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallam4.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M El equilibrio perfecto entre frescura y diseño.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 5 -->
-<div class="card" data-category="camisas">
-  <div class="card-img">
-    <img src="camisa_clasicatallam5.jpg" alt="VO5">
-  </div>
-  <div class="card-body">
-    <span class="tag">Camisas</span>
-    <h3>VO5</h3>
-    <p class="card-desc">Cam VO5 / M Cómoda y con estilo.</p>
-    <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-  </div>
-</div>
-
-
-      <!-- Prenda 6 -->
-      <div class="card" data-category="M">
-        <div class="card-img">
-          <img src="camisa_clasicatallam6.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta azul / M Clásica y elegante.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 7 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallam7.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam kosta Azul / M Moderna y versátil.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 2 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallam2.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M Elegante y atemporal.</p>
+          <h3>Kosta Azul S </h3>
+          <p class="card-desc">viste con distinción, camisas que elevan tu estilo y confianza</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -514,8 +360,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M  camisas que elevan tu estilo y confianza</p>
+          <h3>Kosta Azul M</h3>
+          <p class="card-desc">camisas que elevan tu estilo y confianza</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -527,8 +373,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M  acabados que marcan la diferencia</p>
+          <h3>Kosta Azul M</h3>
+          <p class="card-desc">acabados que marcan la diferencia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -540,8 +386,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M  un imperdible para lucir siempre impecable</p>
+          <h3>Kosta Azul M</h3>
+          <p class="card-desc">un imperdible para lucir siempre impecable</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -553,8 +399,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M  la combinación ideal de presencia y sofisticacion</p>
+          <h3>Kosta Azul M</h3>
+          <p class="card-desc">la combinación ideal de presencia y sofisticacion</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -566,8 +412,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M  dale un toque especial a tu look</p>
+          <h3>Kosta Azul M</h3>
+          <p class="card-desc">dale un toque especial a tu look</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -579,8 +425,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / M  diseños que reflejan tu buen Gusto</p>
+          <h3>Kosta Azul M</h3>
+          <p class="card-desc">diseños que reflejan tu buen Gusto</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -592,8 +438,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / L  luce professional con un estilo auténtico</p>
+          <h3>Kosta Azul L</h3>
+          <p class="card-desc">luce professional con un estilo auténtico</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -605,8 +451,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / L Gambaro manga corta, perfectas para tu estilo de cada día</p>
+          <h3>Kosta Azul L</h3>
+          <p class="card-desc">Gambaro manga corta, perfectas para tu estilo de cada día</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -618,8 +464,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam NAGA / L Manga corta, ideal para días que merecen un gran estilo</p>
+          <h3>Kosta Azul L</h3>
+          <p class="card-desc">ideal para días que merecen un gran estilo</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -631,8 +477,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / L Luce impecable en tu trabajo y fuera de el</p>
+          <h3>VO5 L</h3>
+          <p class="card-desc">Luce impecable en tu trabajo y fuera de el</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -644,8 +490,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / L casual, diseños para salir de lo convencional</p>
+          <h3>Kosta Azul L</h3>
+          <p class="card-desc">casual, diseños para salir de lo convencional</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -657,63 +503,12 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / L descubre diseños que marcan tendencia</p>
+          <h3>Kosta Azul L</h3>
+          <p class="card-desc">descubre diseños que marcan tendencia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
 
-      <!-- Prenda 15 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallal15.jpg" alt="VO5">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / L Estilo que combina con todo.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 16 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallal16.jpg" alt="VO5">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / L Elegante y distinguida.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 17 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallal17.jpg" alt="Gambaro">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Gambaro</h3>
-          <p class="card-desc">Cam Gambaro / L Simple, cómoda y bonita.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 18 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallal18.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / L Versátil y fácil de combinar.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
 
       <!-- Prenda 55 (Nueva - Talla L) -->
       <div class="card" data-category="camisas">
@@ -722,110 +517,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>cam VOS</h3>
-          <p class="card-desc">cam VOS / L Diseños versátiles Para destacar con elegancia</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 19 -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallal19.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / L Moderna y sofisticada.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-<!-- Prenda 20 -->
-<div class="card" data-category="camisas">
-  <div class="card-img">
-    <img src="camisa_clasicatallal20.jpg" alt="Kosta Azul">
-  </div>
-  <div class="card-body">
-    <span class="tag">Camisas</span>
-    <h3>Kosta Azul</h3>
-    <p class="card-desc">Cam Kosta Azul / L Un básico para tu armario.</p>
-    <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-  </div>
-</div>
-
-<!-- Prenda 21 -->
-<div class="card" data-category="camisas">
-  <div class="card-img">
-    <img src="camisa_clasicatallal21.jpg" alt="Kosta Azul">
-  </div>
-  <div class="card-body">
-    <span class="tag">Camisas</span>
-    <h3>Kosta Azul</h3>
-    <p class="card-desc">Cam Kosta Azul / L cómoda y moderna.</p>
-    <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-  </div>
-</div>
-      <!-- Prenda 22 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL22.jpg" alt="VO5">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / XL Casual, cómoda.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 23 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL23.jpg" alt="VO5">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>VO5</h3>
-          <p class="card-desc">Cam VO5 / XL Clásica con un toque moderno.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 24 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL24.jpg" alt="NAGA">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / XL Elegancia en cada detalle.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-            <!-- Prenda 25 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL25.jpg" alt="Kosta AzuL">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / XL Ideal para cualquier ocasión.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 26 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL26.jpg" alt=" Camisa Kosta Blanca Micropatrón">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3> Camisa Kosta Blanca Micropatrón </h3>
-          <p class="card-desc">Estilo sencillo y auténtico. Disponible en talla XL.</p>
+          <h3>VO5 XL</h3>
+          <p class="card-desc">Diseños versátiles Para destacar con elegancia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -837,8 +530,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul </h3>
-          <p class="card-desc">cam kosta azul / XL la combinación perfecta para un look elegante</p>
+          <h3>Kosta Azul XL  </h3>
+          <p class="card-desc">la combinación perfecta para un look elegante</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -850,8 +543,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul </h3>
-          <p class="card-desc">cam kosta azul / XL dale caracter  a tu estilo con un color sofisticado que destaca en cualquier ocasión</p>
+          <h3>Kosta Azul XL</h3>
+          <p class="card-desc">dale caracter  a tu estilo con un color sofisticado que destaca en cualquier ocasión</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -863,8 +556,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul </h3>
-          <p class="card-desc">cam kosta azul / XL diseños para salir de lo convencional</p>
+          <h3>Kosta Azul XL</h3>
+          <p class="card-desc">diseños para salir de lo convencional</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -876,8 +569,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul </h3>
-          <p class="card-desc">cam kosta azul / XL manga corta, descubre diseños que marcan tendencia</p>
+          <h3>Kosta Azul XL</h3>
+          <p class="card-desc">manga corta, descubre diseños que marcan tendencia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -885,12 +578,12 @@ header p {
       <!-- Prenda 52 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
         <div class="card-img">
-          <img src="camvosxl52.jpg" alt="vos">
+          <img src="camvosxl52.jpg" alt="VO5">
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>cam VOS</h3>
-          <p class="card-desc">cam VOS / XL Ideal para quienes cuidan su presentación</p>
+          <h3>VO5 XL</h3>
+          <p class="card-desc">Ideal para quienes cuidan su presentación</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -902,8 +595,8 @@ header p {
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">cam NAGA / XL Opciones para cada gusto y ocasión</p>
+          <h3>NAGA XL</h3>
+          <p class="card-desc">Opciones para cada gusto y ocasión</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -911,37 +604,12 @@ header p {
       <!-- Prenda 54 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
         <div class="card-img">
-          <img src="camvosxl54.jpg" alt="vos">
+          <img src="camvosxl54.jpg" alt="VO5">
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>cam VOS</h3>
-          <p class="card-desc">cam VOS / XL Versatilidad y estilo en una sola prenda</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-
-      <!-- Prenda 27 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL27.jpg" alt="NAGA">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>NAGA</h3>
-          <p class="card-desc">Cam NAGA / XL Cómoda, elegante y versátil.</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
-            <!-- Prenda 28 (Última - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camisa_clasicatallaXL28.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas — Talla XL</span>
-          <h3>Kosta Azul</h3>
-          <p class="card-desc">Cam Kosta Azul / xl Un toque de elegancia, siempre a la moda.</p>
+          <h3>VO5 XL</h3>
+          <p class="card-desc">Versatilidad y estilo en una sola prenda</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
