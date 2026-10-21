@@ -59,18 +59,23 @@
     z-index: 2;
   }
 
-  .logo-header {
-    max-width: clamp(350px, 75vw, 580px);
+      .logo-header {
+    max-width: clamp(350px, 75vw, 580px); 
     height: auto;
     display: inline-block;
     filter: grayscale(100%);
+    
+    /* 💡 Tijera invisible: Recorta un 12% de los bordes izquierdo y derecho sin achicar el logo */
+    clip-path: inset(0% 12% 0% 12%);
   }
 
-  .header-mood-img {
+
+
+   .header-mood-img {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 440px;      
+    width: 520px;      /* 💡 Incrementado de 440px a 520px para que viajen hacia el centro */
     aspect-ratio: 3 / 4;
     overflow: hidden;
     opacity: 0.45;     
@@ -78,23 +83,28 @@
     z-index: 1;        
   }
 
+
   .header-mood-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .img-izquierda {
+    .img-izquierda {
     left: 0;
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
+    /* 💡 Bajamos a 55% para que empiece a desvanecerse un poco antes y no marque la silueta */
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
   }
 
   .img-derecha {
     right: 0;
-    mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 95%);
+    /* 💡 Hacemos lo mismo en el lado derecho */
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
   }
+
+
 
   @media (max-width: 768px) {
     .header-mood-img { display: none; }
@@ -140,7 +150,7 @@
   .grid { padding: 10px 0 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; }
   .card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: 3px; overflow: hidden; display: flex; flex-direction: column; }
   .card-img, .cam { width: 100%; aspect-ratio: 3/4; overflow: hidden; }
-  .card-img img, .cam img { width: 100%; height: 100%; object-fit: cover; display: block; }
+ .card-img img, .cam img { width: 100%; height: 100%; object-fit: cover; display: block; image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges; }
   .card-body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
   .tag { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass-soft); font-family: 'Jost', sans-serif; font-weight: 500; }
   .card h3 { 
@@ -241,7 +251,7 @@
   
   <div class="wrap header-titles">
     <h1>Catálogo</h1>
-    <p>Camisas, trajes y accesorios disponibles en tienda</p>
+    <p>EL FARO DE LA ELEGANCIA Y LA DISTINCIÓN</p>
     <p>Calle 18 # 31-88 — Novacentro, local 12, Pasto</p>
   </div>
 </header>
@@ -269,8 +279,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul S</h3>
-          <p class="card-desc">una prenda para vestir cada día aporta distinción y frescura a tu look</p>
+          <h3>Kosta Azul / S</h3>
+          <p class="card-desc">Una prenda para vestir cada día aporta distinción y frescura a tu look</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -282,8 +292,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul S</h3>
-          <p class="card-desc">tu estilo, tu mejor presentación, ideal para cada ocasión</p>
+          <h3>Kosta Azul / S</h3>
+          <p class="card-desc">Tu estilo, tu mejor presentación, ideal para cada ocasión</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -295,8 +305,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul S</h3>
-          <p class="card-desc">aporta comodidad y personalidad para cada día</p>
+          <h3>Kosta Azul / S</h3>
+          <p class="card-desc">Aporta comodidad y personalidad para cada día</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -308,8 +318,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>NAGA S</h3>
-          <p class="card-desc">una camisa para dejar huella y elegancia que se nota desde el primer instante</p>
+          <h3>NAGA / S</h3>
+          <p class="card-desc">Una camisa para dejar huella y elegancia que se nota desde el primer instante</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -317,15 +327,17 @@
       <!-- Prenda 33 -->
       <div class="card" data-category="camisas">
         <div class="card-img">
-          <img src="camnagas33.jpg" alt="NAGA">
+          <!-- 💡 Se aplicó el filtro micro para corregir el muaré manteniendo tu archivo original -->
+          <img src="camnagas33.jpg" alt="NAGA" style="filter: blur(0.2px);">
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>NAGA S</h3>
-          <p class="card-desc">luce professional con un estilo auténtico</p>
+          <h3>NAGA / S</h3>
+          <p class="card-desc">Luce professional con un estilo auténtico</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
+
 
       <!-- Prenda 34 -->
       <div class="card" data-category="camisas">
@@ -334,8 +346,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul S</h3>
-          <p class="card-desc">el equilibrio perfecto entre frescura y estilo</p>
+          <h3>Kosta Azul / S</h3>
+          <p class="card-desc">El equilibrio perfecto entre frescura y estilo</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -347,8 +359,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul S </h3>
-          <p class="card-desc">viste con distinción, camisas que elevan tu estilo y confianza</p>
+          <h3>Kosta Azul / S </h3>
+          <p class="card-desc">Viste con distinción, camisas que elevan tu estilo y confianza</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -360,8 +372,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul M</h3>
-          <p class="card-desc">camisas que elevan tu estilo y confianza</p>
+          <h3>Kosta Azul / M</h3>
+          <p class="card-desc">Camisas que elevan tu estilo y confianza</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -373,8 +385,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul M</h3>
-          <p class="card-desc">acabados que marcan la diferencia</p>
+          <h3>Kosta Azul / M</h3>
+          <p class="card-desc">Acabados que marcan la diferencia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -386,8 +398,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul M</h3>
-          <p class="card-desc">un imperdible para lucir siempre impecable</p>
+          <h3>Kosta Azul / M</h3>
+          <p class="card-desc">Un imperdible para lucir siempre impecable</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -399,8 +411,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul M</h3>
-          <p class="card-desc">la combinación ideal de presencia y sofisticacion</p>
+          <h3>Kosta Azul / M</h3>
+          <p class="card-desc">La combinación ideal de presencia y sofisticacion</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -412,8 +424,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul M</h3>
-          <p class="card-desc">dale un toque especial a tu look</p>
+          <h3>Kosta Azul / M</h3>
+          <p class="card-desc">Dale un toque especial a tu look</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -425,8 +437,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul M</h3>
-          <p class="card-desc">diseños que reflejan tu buen Gusto</p>
+          <h3>Kosta Azul / M</h3>
+          <p class="card-desc">Diseños que reflejan tu buen Gusto</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -438,8 +450,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul L</h3>
-          <p class="card-desc">luce professional con un estilo auténtico</p>
+          <h3>Kosta Azul / L</h3>
+          <p class="card-desc">Luce professional con un estilo auténtico</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -451,7 +463,7 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul L</h3>
+          <h3>Kosta Azul / L</h3>
           <p class="card-desc">Gambaro manga corta, perfectas para tu estilo de cada día</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
@@ -464,8 +476,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul L</h3>
-          <p class="card-desc">ideal para días que merecen un gran estilo</p>
+          <h3>Kosta Azul / L</h3>
+          <p class="card-desc">Ideal para días que merecen un gran estilo</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -477,7 +489,7 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>VO5 L</h3>
+          <h3>VO5 / L</h3>
           <p class="card-desc">Luce impecable en tu trabajo y fuera de el</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
@@ -490,8 +502,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul L</h3>
-          <p class="card-desc">casual, diseños para salir de lo convencional</p>
+          <h3>Kosta Azul / L</h3>
+          <p class="card-desc">Casual, diseños para salir de lo convencional</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -503,8 +515,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul L</h3>
-          <p class="card-desc">descubre diseños que marcan tendencia</p>
+          <h3>Kosta Azul / L</h3>
+          <p class="card-desc">Descubre diseños que marcan tendencia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -517,7 +529,7 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>VO5 XL</h3>
+          <h3>VO5 / XL</h3>
           <p class="card-desc">Diseños versátiles Para destacar con elegancia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
@@ -530,8 +542,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul XL  </h3>
-          <p class="card-desc">la combinación perfecta para un look elegante</p>
+          <h3>Kosta Azul / XL </h3>
+          <p class="card-desc">La combinación perfecta para un look elegante</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -543,8 +555,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul XL</h3>
-          <p class="card-desc">dale caracter  a tu estilo con un color sofisticado que destaca en cualquier ocasión</p>
+          <h3>Kosta Azul / XL</h3>
+          <p class="card-desc">Dale caracter  a tu estilo con un color sofisticado que destaca en cualquier ocasión</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -556,8 +568,8 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul XL</h3>
-          <p class="card-desc">diseños para salir de lo convencional</p>
+          <h3>Kosta Azul / XL</h3>
+          <p class="card-desc">Diseños para salir de lo convencional</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -565,12 +577,12 @@
       <!-- Prenda 51 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
         <div class="card-img">
-          <img src="camcostaazulxl51.jpg" alt="Kosta Azul">
+          <img src="camcostaazulxl51.jpg" alt="NAGA">
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>Kosta Azul XL</h3>
-          <p class="card-desc">manga corta, descubre diseños que marcan tendencia</p>
+          <h3>NAGA / XL</h3>
+          <p class="card-desc">Manga corta, descubre diseños que marcan tendencia</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
@@ -578,15 +590,17 @@
       <!-- Prenda 52 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
         <div class="card-img">
-          <img src="camvosxl52.jpg" alt="VO5">
+          <!-- 💡 Se aplicó el filtro micro para corregir el muaré manteniendo tu archivo original -->
+          <img src="camvosxl52.jpg" alt="VO5" style="filter: blur(0.2px);">
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>VO5 XL</h3>
+          <h3>VO5 / XL</h3>
           <p class="card-desc">Ideal para quienes cuidan su presentación</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
+
 
       <!-- Prenda 53 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
@@ -595,7 +609,7 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>NAGA XL</h3>
+          <h3>NAGA / XL</h3>
           <p class="card-desc">Opciones para cada gusto y ocasión</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
@@ -608,7 +622,7 @@
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
-          <h3>VO5 XL</h3>
+          <h3>VO5 / XL</h3>
           <p class="card-desc">Versatilidad y estilo en una sola prenda</p>
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
