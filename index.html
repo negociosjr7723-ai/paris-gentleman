@@ -6,7 +6,7 @@
 <title>Catálogo — Paris Gentleman</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     box-sizing: border-box;
@@ -63,7 +63,7 @@
     max-width: clamp(350px, 75vw, 580px); 
     height: auto;
     display: inline-block;
-    filter: grayscale(100%);
+    
     
     /* 💡 Tijera invisible: Recorta un 12% de los bordes izquierdo y derecho sin achicar el logo */
     clip-path: inset(0% 12% 0% 12%);
@@ -92,17 +92,19 @@
 
     .img-izquierda {
     left: 0;
+     opacity: 0.75 !important;
     /* 💡 Bajamos a 55% para que empiece a desvanecerse un poco antes y no marque la silueta */
-    mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
+    mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 95%);
   }
 
   .img-derecha {
+     opacity: 0.65 !important;
     right: 0;
-    /* 💡 Hacemos lo mismo en el lado derecho */
-    mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
-    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
-  }
+    mask-image: linear-gradient(to left, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 95%);
+    -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 95%);
+}
+
 
 
 
@@ -250,8 +252,8 @@
   </div>
   
   <div class="wrap header-titles">
-    <h1>Catálogo</h1>
-    <p>EL FARO DE LA ELEGANCIA Y LA DISTINCIÓN</p>
+            <p style="font-style: italic; position: relative; top: -60px;">El faro de la elegancia y la distinción</p>
+
     <p>Calle 18 # 31-88 — Novacentro, local 12, Pasto</p>
   </div>
 </header>
@@ -266,6 +268,9 @@
     <button class="filter-btn" data-filter="trajes">Trajes</button>
     <button class="filter-btn" data-filter="camisas">Camisas</button>
     <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+    <button class="filter-btn" data-filter="accesorios">Pantalones</button>
+    <button class="filter-btn" data-filter="accesorios">Chaquetas</button>
+    <button class="filter-btn" data-filter="accesorios">Tejidos</button>
   </div>
 
   <!-- Grilla de Productos -->
@@ -534,19 +539,6 @@
           <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
         </div>
       </div>
-
-      <!-- Prenda 48 (Nueva - Talla XL) -->
-      <div class="card" data-category="camisas">
-        <div class="card-img">
-          <img src="camkostaazulxl48.jpg" alt="Kosta Azul">
-        </div>
-        <div class="card-body">
-          <span class="tag">Camisas</span>
-          <h3>Kosta Azul / XL </h3>
-          <p class="card-desc">La combinación perfecta para un look elegante</p>
-          <a href="https://wa.me" class="btn-mini" target="_blank">Consultar</a>
-        </div>
-      </div>
       
       <!-- Prenda 49 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
@@ -564,7 +556,7 @@
       <!-- Prenda 50 (Nueva - Talla XL) -->
       <div class="card" data-category="camisas">
         <div class="card-img">
-          <img src="camcostaazulxl50.jpg" alt="Kosta Azul">
+          <img src="camkostaazulxl48.jpg" alt="Kosta Azul">
         </div>
         <div class="card-body">
           <span class="tag">Camisas</span>
